@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Albatros-CIII observation biplane:
+
+            source : http://en.wikipedia.org/wiki/Albatros_C.III
+                 
+     General characteristics
+
+    Crew: two, pilot and observer
+    Length: 7.10 m (23 ft 3 in)
+    Wingspan: 12.35 m (40 ft 6 in)
+    Height: 3.15 m (10 ft 4 in)
+    Gross weight: 1,071 kg (2,356 lb)
+    Powerplant: 1 X Mercedes D.II, 88 kW (120 hp)
+
+Performance
+
+    Maximum speed: 107 km/h (82 mph)
+    Endurance: 3 hours
+    Service ceiling: 5,000 m (16,400 ft)
+-->
+
+<airplane mass="1970" >
+
+  <approach speed="34" aoa="5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.18"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/> 
+  </approach>
+  
+  <cruise speed="82" alt="1000">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.90" />
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.85" /> 
+  </cruise>
+
+  <cockpit x="-0.075" y="0" z="1.125"/>
+
+ <fuselage ax="1.928" ay="0" az="0.261" bx="0.308" by="0" bz="0.211" width="0.880" taper="0.20" midpoint="1" cx="5.19"/>
+  <fuselage ax="0.308" ay="0" az="0.211" bx="-1.841" by="0" bz="0.1405" width="0.910" taper="0.88" midpoint="0.45" cy="3.19" cz="2.75"/>
+  <fuselage ax="-1.841" ay="0" az="0.1405" bx="-5.769" by="0" bz="0.244" width="0.880" taper="0.185" midpoint="0" cy="2.79" cz="2.45"/>
+
+    <!-- Wing up -->
+  <wing x="-0.296" y="0.0" z="1.325" 
+        chord="1.753" 
+        length="6.042" 
+        taper="1"
+        incidence="1.25"
+        twist="0.25"
+        dihedral="3"
+        sweep="0" 
+        camber="0.097">
+        <stall aoa="12" width="4.0" peak="2.125"/>
+        <flap1 start="0.495" end="1" lift="1.315" drag="1.31"/>
+      
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+      
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <!-- Wing down -->
+  <mstab x="-0.301" y="0.458" z="-0.515" 
+        chord="1.753" 
+        length="5.31" 
+        taper="1" 
+        incidence="1.25"
+        twist="0.15"
+        dihedral="3"
+        sweep="0"
+        camber="0.097">
+        <stall aoa="12" width="4.0" peak="2.125"/>
+  </mstab>
+
+    <hstab x="-5.279" y="0.09" z="0.26" 
+	   chord="2.312" 
+	   length="1.1305" 
+         taper="0.57"
+         incidence="-0.25"   
+         sweep="30"
+         effectiveness="1.45"
+         camber="0.01"> 
+         <stall aoa="17" width="4" peak="1.95"/>
+         <flap0 start="0" end="1" lift="1.58" drag="1.42"/>
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+ <!-- fin-rudder -->
+
+  <vstab x="-5.31" y="0" z="0.378" 
+	  chord="2.345" 
+	  length="0.94" 
+        taper="0.48"
+        effectiveness="1.54" 
+	  sweep="50">
+       <stall aoa="22" width="3" peak="1.5"/>
+       <flap0 start="0" end="1" lift="1.36" drag="1.2"/>
+         <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+    <!-- Engines      : Mercedes-Daimler D.II
+
+       Informations : http://en.wikipedia.org/wiki/Mercedes_D.III
+
+General characteristics
+
+    Type: 6-cyl. water-cooled in-line piston engine
+    Bore: 140 mm (5.51 in)
+    Stroke: 160 mm (6.30 in)
+    Displacement: 14.8 l (903.15 cu in)
+    Length: 1,650 mm (64.96 in)
+    Width: 490 mm (19.29 in)
+    Height: 1,070 mm (42.13 in)
+    Dry weight: 310 kg (683 lb)
+
+Components
+
+    Valvetrain: SOHC rocker operated single inlet and exhaust valves.
+    Fuel system: Dual Mercedes twin-jet carburettors
+    Fuel type: Gasoline
+    Oil system: Pressure system; multiple plunger pump
+    Cooling system: Water-cooled
+
+Performance
+
+    Power output: 129.75 kW (174 hp) at 1,400 rpm (rated power at sea level), 152.12 kW (204 hp) at  1,600 rpm (maximum power at altitude)
+    Specific power: 0.2259 hp/cu in (10.281 kW/l)
+    Compression ratio: 4.64:1
+    Specific fuel consumption: 0.412 l/kW/hour (0.541 pt/hp/hour)
+    Oil consumption: 0.027/kW/hour (0.0355pt/hp/hour)
+    Power-to-weight ratio: 0.492 kW/kg (0.299 hp/lb)
+    BMEP: 0.75 MPa (109.1 psi)
+  
+  -->
+  <propeller x="1.219" y="0.0" z="0.471"  
+             radius="1.295"
+             mass="679"       
+             moment="16.5"
+             blades="2"
+             cruise-power="141"
+             cruise-alt="1000" 
+             cruise-speed="82"
+             cruise-rpm="1370"
+             gear-ratio="1.0"
+             takeoff-power="160"
+             takeoff-rpm="1400">
+             <actionpt x="2.0004" y="0" z="0.2613"/>
+             <piston-engine eng-rpm="1400"  
+                            alt="5000" 
+                            eng-power="160"
+                            bore="5.512"
+                            stroke="6.299"
+                            compression-ratio="4.6"
+                            min-throttle="0.051"
+                            displacement="903.15"/>
+             <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+             <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+             <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+             <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+  </propeller>
+
+ <!-- Left wheel -->
+  <gear x="0.2473" y="0.849" z="-1.497" 
+        compression="0.125" 
+        spring="1.28" 
+        damp="0.43" 
+        on-solid="1" >
+        <control-input axis="/controls/gear/brake-left" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="0.2473" y="-0.849" z="-1.497" 
+        compression="0.125" 
+        spring="1.28"
+        damp="0.43" 
+        on-solid="1" >
+        <control-input axis="/controls/gear/brake-right" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Tail skid -->
+  <gear x="-4.907" y="0" z="-0.474" 
+        compression="0.1" 
+        spring="0.8"
+        on-solid="1"
+        sfric="1"
+        dfric="1">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.2" dst1="-0.2"/>
+  </gear>
+
+
+  <!-- Fuel: 282 lbs -->
+  <tank x="-0.28" y="0" z="-0.59" capacity="282"/>
+
+  <!-- pilot weight -->
+  <weight x="-0.471" y="0.0" z="0.306" mass-prop="/sim/weight[0]/weight-lb"/>
+  <weight x="0-1.33" y="0.0" z="0.308" mass-prop="/sim/weight[1]/weight-lb"/>
+
+
+  <ballast x="-1.16" y="0" z="-1.9" mass="180"/>
+
+</airplane>
+

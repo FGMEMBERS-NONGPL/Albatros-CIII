@@ -6,13 +6,15 @@
     <name>Gun</name>
     <model>Aircraft/Albatros-CIII/Models/Effects/guns/apibullet-tracer.xml</model>
     <trigger>controls/armament/trigger</trigger>
-    <speed>2910</speed>
+    <speed>2470</speed>
     <repeat>true</repeat>
-    <delay>0.202</delay> <!--doubling the delay/halving the rate to avoid killing FG framerate-->
+    <delay>0.25</delay> <!--doubling the delay/halving the rate to avoid killing FG framerate-->
     <count>400</count>
-    <yaw-offset>0</yaw-offset>
-    <pitch-offset>0</pitch-offset>
-    <life>12</life>
+    <yaw-offset>sim/model/turret/heading</yaw-offset>
+    <pitch-offset>sim/model/turret/pitch</pitch-offset>
+    <!-- <yaw-offset>0</yaw-offset>
+    <pitch-offset>0</pitch-offset> -->
+    <life>2</life>
     <wind>false</wind>
     <weight>0.13007235</weight>
     <cd>0.193</cd>

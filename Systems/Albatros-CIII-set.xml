@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+   <sim include="Nasal/views.xml">
+
+   <description>Albatros-CIII</description>
+   <author>LesterBoffo FDM and FS-WWI 3D and texture models</author>
+   <status>alpha</status>
+    <rating>
+    <FDM type="int">3</FDM>
+    <systems type="int">1</systems>
+    <model type="int">3</model>
+    <cockpit type="int">2</cockpit>
+  </rating>
+
+   <flight-model archive="y">yasim</flight-model>
+   <aero archive="y">Albatros-CIII-yasim</aero>
+
+   <startup>
+    <splash-texture>Aircraft/Albatros-CIII/splash.jpg</splash-texture>
+    <units>meters</units>
+    <fuel-fraction>0.8</fuel-fraction>
+   </startup>
+
+<sound>
+      <path>Aircraft/Albatros-CIII/Sounds/Albatros-CIII-sound.xml</path>
+    </sound>
+
+  <model>
+   <path>Aircraft/Albatros-CIII/Models/albatros-ciii-model.xml</path>
+      <livery>
+         <file type="string">default</file>
+      </livery>
+  </model>
+
+   <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Albatros-CIII/Models/Effects/guns/submodels.xml</path>
+   </submodels>
+   
+   <menubar include="Dialogs/albatros-ciii-menu.xml"/>
+
+  <systems>
+    <property-rule n="100">
+       <name>gear_agl_m</name>
+       <path>Aircraft/Albatros-CIII/Systems/gear-AGL.xml</path>
+    </property-rule>
+</systems>
+
+  <!-- Payload -->
+  <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>230</max-lb>
+      <min-lb>150</min-lb>
+  </weight> 
+
+  <weight n="1">
+      <name>Observer</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>230</max-lb>
+      <min-lb>0</min-lb>
+  </weight>
+
+ </sim>
+ 
+  <input>
+   <keyboard include="Nasal/albatros-ciii-keyboard.xml"/>
+  </input>
+  
+ <nasal>
+  <guns>
+    <file>Aircraft/Albatros-CIII/Nasal/revi.nas</file>
+    <file>Aircraft/Albatros-CIII/Nasal/weapons.nas</file>
+  </guns>
+   <liveries>
+    <file>Aircraft/Albatros-CIII/Nasal/liveries.nas</file>
+   </liveries>
+ </nasal>
+
+</PropertyList>
